@@ -1,0 +1,14 @@
+
+.pfp:hover {
+  cursor: pointer;
+  border: rgba(124, 124, 124, 0.871) 2px solid;
+  scale: 1.2;
+}
+.pfp:active {
+  border: rgba(124, 124, 124, 0.871) 2px solid;
+  scale: 1.2;
+}
+.k{
+    border: rgba(124, 124, 124, 0.871) 2px solid;
+    scale: 1.2;
+}
