@@ -29,7 +29,13 @@ const Page = () => {
     const { setUser } = useAuthStore()
     const [loading, setLoading] = useState(true)
     const accessToken = useAuthStore.getState().user?.accessToken;
-    const token = localStorage.getItem("accessToken");
+      const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    // Runs only in the browser
+    const storedToken = localStorage.getItem("accessToken");
+    setToken(storedToken);
+  }, []);
 
 
     useEffect(() => {
