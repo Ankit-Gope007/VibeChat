@@ -9,7 +9,7 @@ import { MdEdit } from "react-icons/md";
 import { logoutRoute } from "@/apiRoutes";
 import axios from "axios";
 import { toast } from "sonner";
-import { useAuthStore } from '@/store/index.js'
+import { useAuthStore } from '@/store'
 
 const Sidebar = () => {
 
