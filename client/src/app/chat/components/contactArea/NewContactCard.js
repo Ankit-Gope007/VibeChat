@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import { sendRequestRoute,validRequestRoute } from "@/apiRoutes";
-import useAuthStore from '@/store/index.js';
+import {useAuthStore} from '@/store';
 
 const Page = ({contact}) => {
     const [vibe, setVibe] = useState(false);
