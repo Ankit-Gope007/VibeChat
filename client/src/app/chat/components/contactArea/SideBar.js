@@ -24,7 +24,7 @@ const Sidebar = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post(logoutRoute, null,  {
+            await axios.post(logoutRoute,  {
       headers: {
         Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
