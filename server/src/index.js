@@ -4,7 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import connectDB from './db/index.js';
 import { app } from './app.js';
-import setupSocket from './socket.js';
+
 import http from 'http';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
