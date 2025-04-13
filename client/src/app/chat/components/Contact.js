@@ -7,6 +7,7 @@ import NewContactCard from './contactArea/NewContactCard.js'
 import NewRequestCard from './contactArea/NewRequestCard.js'
 import axios from 'axios'
 import { getContactsRoute } from '@/apiRoutes'
+import useAuthStore from '@/store/useAuthStore';
 
 const Contact = ({ setShowChat }) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -15,13 +16,20 @@ const Contact = ({ setShowChat }) => {
   const [chatArea, setChatArea] = useState(false)
   const [contacts, setContacts] = useState([])
   const [viewMode, setViewMode] = useState('contacts') // 'contacts', 'search', 'requests', 'empty'
+  const accessToken = useAuthStore.getState().user?.accessToken;
 
   useEffect(() => {
     handleGetContacts()
   }, [viewMode])
 
   const handleGetContacts = async () => {
-    const response = await axios.get(getContactsRoute, { withCredentials: true })
+    // const response = await axios.get(getContactsRoute, { withCredentials: true })
+     const response = await axios.get(getContactsRoute, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
     if (response.status === 200) {
       console.log(response.data.data.contactInfo)
       setContacts(response.data.data.contactInfo)
