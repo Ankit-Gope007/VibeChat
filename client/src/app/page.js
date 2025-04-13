@@ -8,7 +8,7 @@ import { toast } from "sonner"
 import { signUpRoute, loginRoute } from '@/apiRoutes.js'
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import { useAuthStore } from '@/store'
+import { useAuthStore } from '@/store/index.js'
 
 
 const Page = () => {
