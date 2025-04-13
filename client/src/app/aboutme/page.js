@@ -8,7 +8,7 @@ import axios from "axios";
 import { contactMeRoute } from "@/apiRoutes";
 import { toast } from "sonner";
 
-const page = () => {
+const Page = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -138,4 +138,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
