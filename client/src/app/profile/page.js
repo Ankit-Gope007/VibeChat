@@ -29,6 +29,7 @@ const Page = () => {
     const { setUser } = useAuthStore()
     const [loading, setLoading] = useState(true)
     const accessToken = useAuthStore.getState().user?.accessToken;
+    const token = localStorage.getItem("accessToken");
 
 
     useEffect(() => {
@@ -60,7 +61,7 @@ const Page = () => {
         }
         , {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     })
