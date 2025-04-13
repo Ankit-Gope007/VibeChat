@@ -27,7 +27,7 @@ const Sidebar = () => {
             await axios.post(logoutRoute,  {
       headers: {
         Authorization: `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
+        
       },
     });
             toast.success("Logged out successfully");
