@@ -67,7 +67,7 @@ const Page = () => {
         }
         , {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
       },
     })
