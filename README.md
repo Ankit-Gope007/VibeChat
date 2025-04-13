@@ -6,9 +6,9 @@ A sleek, responsive real-time chat application built using **Next.js**, **Socket
 
 ## 🚀 Live Demo
 
-🔗 [Click here to try the app](https://your-chat-app.vercel.app)
+🔗 [Click here to try the app](https://vibe-chat-one.vercel.app/)
 
-> *(Replace this link with your actual deployed URL)*
+
 
 ---
 
@@ -16,7 +16,6 @@ A sleek, responsive real-time chat application built using **Next.js**, **Socket
 
 - 🌐 Real-time messaging using Socket.IO
 - 🔒 Unique user identification
-- 🧑‍🤝‍🧑 Join/create multiple chat rooms
 - 💬 Modern and responsive UI with Tailwind CSS
 - 🖥️ Mobile & desktop friendly
 - ⚡ Instant message rendering with auto scroll
@@ -27,8 +26,9 @@ A sleek, responsive real-time chat application built using **Next.js**, **Socket
 
 - **Frontend:** Next.js, Tailwind CSS
 - **Backend:** Node.js, Express, Socket.IO
+- **Database:** MongoDB
 - **Realtime Engine:** WebSockets via Socket.IO
-- **Deployment:** Vercel / Render / Railway (choose yours)
+- **Deployment:** Vercel (frontend) , Render (backend)
 
 ---
 
