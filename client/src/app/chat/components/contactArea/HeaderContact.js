@@ -8,17 +8,24 @@ import SideBar from './SideBar';
 import axios from 'axios'
 import {searchContactsRoute,getRequestsRoute} from '@/apiRoutes.js'
 import { IoIosNotifications } from "react-icons/io";
+import useAuthStore from '@/store/index.js';
 
 const HeaderContact = ({setMenuOpen,setSearchedContacts, setViewMode ,setSearchRequests}) => {
   const [searchTerm, setSearchTerm] = useState('')
   const [back , setBack] = useState(false)
+  const accessToken = useAuthStore.getState().user?.accessToken;
   const handleSearch = async (e) => {
     const query = e.target.value
     setSearchTerm(e.target.value)
     if (query.trim() !== '') {
       setViewMode('search')
       try {
-        const response = await axios.post(searchContactsRoute,{searchTerm} , { withCredentials: true });
+        const response = await axios.post(searchContactsRoute,{searchTerm} , {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
         console.log(response.data.data.contacts)
         setSearchedContacts(response.data.data.contacts)
       } catch (error) {
@@ -36,7 +43,12 @@ const HeaderContact = ({setMenuOpen,setSearchedContacts, setViewMode ,setSearchR
     setBack(true)
    
 
-    const response = await axios.get(getRequestsRoute, { withCredentials: true });
+    const response = await axios.get(getRequestsRoute, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
     // console.log("it has not passed",response.data.data.requests)
     // setSearchRequests(response.data.data.requests)
     const pendingRequests = response.data.data.requests.filter(
