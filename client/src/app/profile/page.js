@@ -16,7 +16,7 @@ import Loading from '@/component/loader.js';
 
 
 
-const page = () => {
+const Page = () => {
     const fileInput = useRef(null)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -153,4 +153,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
