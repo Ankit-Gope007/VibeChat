@@ -32,6 +32,7 @@ const Sidebar = () => {
     });
             toast.success("Logged out successfully");
             sessionStorage.setItem("isLoggedIn", false);
+            localStorage.removeItem("accessToken");
             router.push("/");
         } catch (error) {
             console.log(error);
