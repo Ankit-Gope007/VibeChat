@@ -15,6 +15,7 @@ const Sidebar = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
+    const accessToken = useAuthStore.getState().user?.accessToken;
 
     // Toggle Sidebar
     const toggleSidebar = () => {
