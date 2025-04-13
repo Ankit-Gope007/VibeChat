@@ -133,15 +133,13 @@ export const updateProfile = asyncHandler(async (req, res) => {
             throw new ApiError(404, "Profile not found")
         }
 
-         const { accessToken, refreshToken } = await generateAccessAndRefreshToken(profile._id)
+       
         return res
             .status(200)
             .json(
                 new ApiResponse(
                     200,
                      profile,
-                    accessToken,
-                    refreshToken,
                     "Profile updated successfully"
                 )
             )
