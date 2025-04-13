@@ -11,7 +11,7 @@ const app = express()
 
 const allowedOrigins = [
   'https://vibe-chat-one.vercel.app',
-  'https://vibe-chat-54pz0se69-ankit-gopes-projects-893eb2f8.vercel.app'
+  'https://vibe-chat-54pz0se69-ankit-gopes-projects-893eb2f8.vercel.app',
   'http://localhost:3000'
 ];
 
