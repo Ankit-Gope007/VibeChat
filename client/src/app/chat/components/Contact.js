@@ -12,6 +12,7 @@ const Contact = ({ setShowChat }) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchedContacts, setSearchedContacts] = useState([])
   const [searchRequests, setSearchRequests] = useState([])
+  const [chatArea, setChatArea] = useState(false)
   const [contacts, setContacts] = useState([])
   const [viewMode, setViewMode] = useState('contacts') // 'contacts', 'search', 'requests', 'empty'
 

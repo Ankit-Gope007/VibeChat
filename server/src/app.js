@@ -22,6 +22,7 @@ import contactRoutes from "./routes/Contacts.route.js";
 import requestRoutes from "./routes/Request.route.js";
 import contactMeRoutes from "./routes/ContactMe.route.js";
 import feedbackRoutes from "./routes/Feedback.route.js";
+import messageRoutes from "./routes/Message.route.js";
 
 //route declaration
 app.use("/api/chatz/profiles",profileRoutes);
@@ -29,5 +30,6 @@ app.use("/api/chatz/contacts",contactRoutes);
 app.use("/api/chatz/requests",requestRoutes);
 app.use("/api/chatz/contact-me",contactMeRoutes);
 app.use("/api/chatz/feedback",feedbackRoutes);
+app.use("/api/chatz/messages",messageRoutes);
 
 export {app};

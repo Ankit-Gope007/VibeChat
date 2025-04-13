@@ -7,7 +7,8 @@ import { app } from './app.js';
 import setupSocket from './socket.js';
 import http from 'http';
 import { createServer } from 'http';
-
+import { Server } from 'socket.io';
+import { Message } from './models/Message.model.js';
 
 
 dotenv.config({
@@ -19,9 +20,46 @@ connectDB()
         try {
             // app.listen(process.env.PORT||8000)
             const server = http.createServer(app);
-            server.listen(process.env.PORT || 8000);
-            setupSocket(server);
-            console.log(`Server is listening on port ${process.env.PORT}` );
+            const io = new Server(server, {
+                cors: {
+                  origin:process.env.CORS_ORIGIN, // or your deployed client URL
+                  credentials: true,
+                },
+              });
+              io.on('connection', (socket) => {
+                console.log(' User connected:', socket.id);
+              
+                // Join Room
+                socket.on('join_room', (roomId) => {
+                  socket.join(roomId);
+                  console.log(`User ${socket.id} joined room ${roomId}`);
+                });
+              
+                // Send message
+                socket.on('send_message', async(data) => {
+                    try {
+                        await Message.create({
+                          room: data.room,
+                          sender: data.sender,
+                          message: data.message,
+                        });
+                      } catch (err) {
+                        console.error("Error saving message:", err);
+                      }
+                  
+                    console.log("Server received message:", data); 
+                    console.log('📤 Sending to room:', data.room)
+                  socket.to(data.room).emit('receive_message', data);
+                });
+              
+                socket.on('disconnect', () => {
+                  console.log('User disconnected:', socket.id);
+                });
+              });
+            
+              server.listen(process.env.PORT || 8000, () => {
+                console.log(`Server is listening on port ${process.env.PORT || 8000}`);
+              });
 
         } catch (error) {
             app.on("error", (error) => {

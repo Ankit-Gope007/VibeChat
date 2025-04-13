@@ -2,8 +2,10 @@ import React from 'react'
 import EmptyChatArea from './ChatArea/EmptyChatArea.js'
 import SelectedChatArea from './ChatArea/SelectedChatArea.js'
 import Image from 'next/image'
+import { useAuthStore } from '@/store/index.js'
 
 const Container = ({setShowChat}) => {
+  const { openedContact } = useAuthStore()
   return (
     <div className="relative w-full min-h-screen">
       {/* Background Image */}
@@ -16,8 +18,9 @@ const Container = ({setShowChat}) => {
 
       {/* Content Area (Ensuring it stays on top) */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-6xl font-bold z-10">
-        <SelectedChatArea setShowChat={setShowChat} />
-        <EmptyChatArea />
+       { openedContact?
+        <SelectedChatArea setShowChat={setShowChat} />:
+        <EmptyChatArea />}
       </div>
     </div>
   )

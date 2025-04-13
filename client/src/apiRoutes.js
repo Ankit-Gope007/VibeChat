@@ -20,3 +20,5 @@ export const getRequestsRoute = `${apiRoutes}requests/get-requests`
 export const updateRequestRoute = `${apiRoutes}requests/update-request`
 
 export const getContactsRoute = `${apiRoutes}requests/contacts`
+
+export const getMessagesRoute = `${apiRoutes}messages/`
