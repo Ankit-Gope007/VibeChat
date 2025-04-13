@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { sendRequestRoute, validRequestRoute, updateRequestRoute } from "@/apiRoutes";
 import { motion, AnimatePresence } from "framer-motion";
-import useAuthStore from '@/store/index.js';
+import {useAuthStore} from '@/store';
 
 const Page = ({ request }) => {
     const [vibe, setVibe] = useState(false);
