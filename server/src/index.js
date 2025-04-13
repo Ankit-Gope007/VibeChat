@@ -24,7 +24,10 @@ connectDB()
             const server = http.createServer(app);
             const io = new Server(server, {
                 cors: {
-                  origin:process.env.CORS_ORIGIN, // or your deployed client URL
+                  origin:[
+      'https://vibe-chat-one.vercel.app',
+      'https://vibe-chat-54pz0se69-ankit-gopes-projects-893eb2f8.vercel.app'
+    ],, // or your deployed client URL
                   credentials: true,
                 },
               });
