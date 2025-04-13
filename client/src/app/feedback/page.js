@@ -6,7 +6,7 @@ import { FaPaperPlane } from "react-icons/fa";
 import axios from "axios";
 import { feedbackRoute } from "@/apiRoutes";
 
-const page = () => {
+const Page = () => {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -71,4 +71,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
