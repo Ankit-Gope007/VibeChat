@@ -9,6 +9,22 @@ const app = express()
 //     credentials : true,
 // }))
 
+const allowedOrigins = [
+  'https://vibe-chat-one.vercel.app',
+  'https://vibe-chat-54pz0se69-ankit-gopes-projects-893eb2f8.vercel.app',
+  'http://localhost:3000'
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed from origin: ' + origin));
+    }
+  },
+  credentials: true
+}));
 
 app.use(express.json({limit : "1000kb"}))
 app.use(express.urlencoded({extended:true,limit : "1000kb"}))
