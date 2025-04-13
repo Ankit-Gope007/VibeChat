@@ -9,6 +9,7 @@ import { MdEdit } from "react-icons/md";
 import { logoutRoute } from "@/apiRoutes";
 import axios from "axios";
 import { toast } from "sonner";
+import { useAuthStore } from '@/store/index.js'
 
 const Sidebar = () => {
 
@@ -22,7 +23,12 @@ const Sidebar = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post(logoutRoute, null, { withCredentials: true });
+            await axios.post(logoutRoute, null,  {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
             toast.success("Logged out successfully");
             sessionStorage.setItem("isLoggedIn", false);
             router.push("/");
