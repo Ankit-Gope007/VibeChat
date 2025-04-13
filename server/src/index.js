@@ -27,7 +27,7 @@ connectDB()
                   origin:[
       'https://vibe-chat-one.vercel.app',
       'https://vibe-chat-54pz0se69-ankit-gopes-projects-893eb2f8.vercel.app'
-    ],, // or your deployed client URL
+    ],
                   credentials: true,
                 },
               });
