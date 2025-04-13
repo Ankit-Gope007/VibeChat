@@ -28,6 +28,7 @@ const Page = () => {
     const router = useRouter();
     const { setUser } = useAuthStore()
     const [loading, setLoading] = useState(true)
+    const accessToken = useAuthStore.getState().user?.accessToken;
 
 
     useEffect(() => {
@@ -57,7 +58,12 @@ const Page = () => {
             lastName: lastName,
             image: image
         }
-        , { withCredentials: true })
+        , {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    })
         if (response.status === 200) {
             setUser(response.data.data)
             console.log(response.data.data)
