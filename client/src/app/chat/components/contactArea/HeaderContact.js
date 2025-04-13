@@ -8,7 +8,7 @@ import SideBar from './SideBar';
 import axios from 'axios'
 import {searchContactsRoute,getRequestsRoute} from '@/apiRoutes.js'
 import { IoIosNotifications } from "react-icons/io";
-import useAuthStore from '@/store/index.js';
+import {useAuthStore} from '@/store';
 
 const HeaderContact = ({setMenuOpen,setSearchedContacts, setViewMode ,setSearchRequests}) => {
   const [searchTerm, setSearchTerm] = useState('')
