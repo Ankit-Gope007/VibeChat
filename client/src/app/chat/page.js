@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 import Loading from '@/component/loader.js'
 
-const page = () => {
+const Page = () => {
     const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [ShowChat, setShowChat] = useState(false)
@@ -45,4 +45,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
