@@ -2,10 +2,10 @@
 
 Vibe Chat isn’t just a messaging app — it’s your personal corner of the internet where good vibes and real-time conversations collide. Built with Next.js, Socket.IO, and Tailwind CSS, this sleek, responsive app lets you:
 
-🌟 Pick a unique username
-💬 Join or create chat rooms
-⚡ Exchange messages instantly — no lag, no reloads
-🎨 Enjoy a clean, minimal UI that adapts beautifully on any device
+-🌟 Pick a unique username
+-💬 Join or create chat rooms
+-⚡ Exchange messages instantly — no lag, no reloads
+-🎨 Enjoy a clean, minimal UI that adapts beautifully on any device
 
 Whether you’re chilling with friends or vibing with strangers, Vibe Chat makes sure your messages hit right on time. Fast. Smooth. Real.
 
