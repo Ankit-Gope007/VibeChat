@@ -2,15 +2,22 @@ import React, { use } from "react";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import { sendRequestRoute,validRequestRoute } from "@/apiRoutes";
+import useAuthStore from '@/store/index.js';
 
 const Page = ({contact}) => {
     const [vibe, setVibe] = useState(false);
+    const accessToken = useAuthStore.getState().user?.accessToken;
 
     useEffect(() => {
         handleValidRequest();
     }, []);
     const handleVibe = async() => {
-        const response = await axios.post(sendRequestRoute, {receiverId:contact._id}, { withCredentials: true });
+        const response = await axios.post(sendRequestRoute, {receiverId:contact._id}, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
  
         if (response.status === 201) {
             console.log("Request Sent Vibe:",vibe);
@@ -21,7 +28,12 @@ const Page = ({contact}) => {
     };
     const handleValidRequest = async() => {
         console.log("start")
-        const response = await axios.post(validRequestRoute, {recieverId :contact._id}, { withCredentials: true });
+        const response = await axios.post(validRequestRoute, {recieverId :contact._id}, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
         console.log("before")
         if (response.status === 200) {
             setVibe(true);
