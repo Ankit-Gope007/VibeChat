@@ -1,4 +1,5 @@
-
+import axios from 'axios'
+axios.defaults.withCredentials = true
 export const apiRoutes = 'https://vibechat-krt9.onrender.com/api/chatz/'
 
 export const signUpRoute = `${apiRoutes}profiles/signup`
