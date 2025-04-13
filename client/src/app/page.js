@@ -61,7 +61,7 @@ const Page = () => {
         // setUserInfo(response.data.data.createdProfile)
         // console.log(response.data.data.createdProfile)
         setUser(response.data.data)
-        localStorage.setItem("accessToken",response.data.data.profile.accessToken);
+    
         sessionStorage.setItem("isLoggedIn", true);
         toast.success("Sign Up successfully")
         router.push("/profile")
@@ -76,10 +76,10 @@ const Page = () => {
       const response = await axios.post(loginRoute, { email, password }, { withCredentials: true })
       if (response.status === 200) {
         // setUserInfo(response.data.data.profile)
-        console.log("TOKEN:",response.data.data.profile.accessToken)
+      
         sessionStorage.setItem("isLoggedIn", true);
         setUser(response.data.data)
-        localStorage.setItem("accessToken",response.data.data.profile);
+        
         toast.success("Logged In successfully")
         response.data.data.profile.profileSetup ?
           router.push("/chat") : router.push("/profile")
