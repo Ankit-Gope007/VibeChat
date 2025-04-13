@@ -7,7 +7,7 @@ import NewContactCard from './contactArea/NewContactCard.js'
 import NewRequestCard from './contactArea/NewRequestCard.js'
 import axios from 'axios'
 import { getContactsRoute } from '@/apiRoutes'
-import useAuthStore from '@/store/useAuthStore';
+import { useAuthStore } from '@/store/index.js'
 
 const Contact = ({ setShowChat }) => {
   const [menuOpen, setMenuOpen] = useState(false)
