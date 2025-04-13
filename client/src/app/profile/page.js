@@ -75,7 +75,7 @@ const Page = () => {
             setUser(response.data.data)
             console.log(response.data.data)
             toast.success('Profile updated successfully')
-            router.push('/chat')
+            router.push('/')
         }
     }
     const handlePfp1 = () => {
