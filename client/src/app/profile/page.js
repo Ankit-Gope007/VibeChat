@@ -159,7 +159,7 @@ const Page = () => {
             <div className='overflow-auto min-h-screen w-full flex items-center justify-center p-4'>
                 <div className='w-full max-w-4xl border rounded-2xl shadow-2xl bg-white'>
                     <div className='text-center py-8 px-4'>
-                        <h1 className='text-3xl font-bold'>Let's Set up Your Profile</h1>
+                        <h1 className='p-10 text-4xl font-bold text-center'>Let us set up your profile</h1>
                     </div>
 
                     <div className='flex flex-col lg:flex-row gap-8 px-6 pb-8'>
