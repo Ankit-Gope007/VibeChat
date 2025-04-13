@@ -24,11 +24,11 @@ connectDB()
             const server = http.createServer(app);
             const io = new Server(server, {
                 cors: {
-                  origin:
-                      'https://vibechat-client.onrender.com'
-      // 'https://vibe-chat-one.vercel.app',
-      // 'https://vibe-chat-54pz0se69-ankit-gopes-projects-893eb2f8.vercel.app'
-    ,
+                  origin:[
+                     
+      'https://vibe-chat-one.vercel.app',
+      'https://vibe-chat-54pz0se69-ankit-gopes-projects-893eb2f8.vercel.app'
+    ],
                   credentials: true,
                 },
               });
