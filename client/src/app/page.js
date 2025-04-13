@@ -79,7 +79,7 @@ const Page = () => {
         console.log("TOKEN:",response.data.data.profile.accessToken)
         sessionStorage.setItem("isLoggedIn", true);
         setUser(response.data.data)
-        localStorage.setItem("accessToken",response.data.data.profile.accessToken);
+        localStorage.setItem("accessToken",response.data.data.profile);
         toast.success("Logged In successfully")
         response.data.data.profile.profileSetup ?
           router.push("/chat") : router.push("/profile")
