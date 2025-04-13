@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { sendRequestRoute, validRequestRoute, updateRequestRoute } from "@/apiRoutes";
 import { motion, AnimatePresence } from "framer-motion";
+import useAuthStore from '@/store/index.js';
 
 const Page = ({ request }) => {
     const [vibe, setVibe] = useState(false);
@@ -10,6 +11,7 @@ const Page = ({ request }) => {
     const [showTick, setShowTick] = useState(false);
     const [rejected, setRejected] = useState(false);
     const [showCross, setShowCross] = useState(false);
+      const accessToken = useAuthStore.getState().user?.accessToken;
 
     useEffect(() => {
         if (showTick) {
@@ -23,7 +25,12 @@ const Page = ({ request }) => {
         handleValidRequest();
     }, [showTick, showCross]);
     const handleVibe = async () => {
-        const response = await axios.post(sendRequestRoute, { receiverId: contact._id }, { withCredentials: true });
+        const response = await axios.post(sendRequestRoute, { receiverId: contact._id }, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
 
         if (response.status === 201) {
             console.log("Request Sent Vibe:", vibe);
@@ -34,7 +41,12 @@ const Page = ({ request }) => {
     };
     const handleValidRequest = async () => {
         console.log("start")
-        const response = await axios.post(validRequestRoute, { recieverId: contact._id }, { withCredentials: true });
+        const response = await axios.post(validRequestRoute, { recieverId: contact._id },{
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
         console.log("before")
         if (response.status === 200) {
             setVibe(true);
@@ -46,7 +58,12 @@ const Page = ({ request }) => {
     };
 
     const handleVibeBack = async () => {
-        const response = await axios.post(updateRequestRoute, { requestId: request._id, status: "Approved" }, { withCredentials: true });
+        const response = await axios.post(updateRequestRoute, { requestId: request._id, status: "Approved" },{
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
         if (response.status === 200) {
             console.log("Vibe Back Sent");
             setAccepted(true);
@@ -55,7 +72,12 @@ const Page = ({ request }) => {
 
     }
     const handleNoVibe = async () => {
-        const response = await axios.post(updateRequestRoute, { requestId: request._id, status: "Rejected" }, { withCredentials: true });
+        const response = await axios.post(updateRequestRoute, { requestId: request._id, status: "Rejected" },{
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
         if (response.status === 200) {
             console.log("No Vibe Sent");
             setRejected(true);
